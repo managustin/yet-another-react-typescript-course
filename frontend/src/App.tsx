@@ -5,7 +5,13 @@ function App() {
 
   return (
     <>
-      <Button backgroundColor='#10b981' fontSize={30} pillShape={true}/>
+      <Button 
+        backgroundColor='green' 
+        fontSize={30} 
+        pillShape={true}
+        padding={[4,2,4,2]} 
+        textColor='black'
+        />
     </>
   )
 }
