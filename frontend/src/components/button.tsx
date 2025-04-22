@@ -1,29 +1,24 @@
-type Color = "red" | "blue" | "green" | "yellow" | "purple" | "black"
+import React from "react"
 
 type ButtonProps = {    //added this type, so that I can specify that the props for the button are of type buttonProps
-    backgroundColor: Color
-    fontSize?: number
-    pillShape?: boolean
-    textColor: Color
-    padding: [number, number, number, number]
+    // style: {
+    //     backgroundColor: string;
+    //     fontSize: number;
+    //     textColor: string;
+    // } instead of doing this, we can use one of the types we get from REACT.
+    style: React.CSSProperties
+    borderRadius: Record<'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight', number>
 }
 
-export default function Button({    //added some destructuring for the props, which is a common practice
-    backgroundColor,
-    textColor,
-    fontSize,
-    pillShape,
-    padding,
-}:  ButtonProps) {
+export default function Button({style, borderRadius}: ButtonProps) {
     return (
         <button style={{
-                background: backgroundColor,
-                fontSize: fontSize, 
-                color: textColor,
-                padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`
-                }} 
-                className={`text-white border-2 ${pillShape ? 'rounded-[50px]' : 'rounded'}`}
-                >
+            ...style,   //spread operator 
+            borderTopLeftRadius: borderRadius.topLeft + 'px',
+            borderTopRightRadius: borderRadius.topRight + 'px',
+            borderBottomLeftRadius: borderRadius.bottomLeft + 'px',
+            borderBottomRightRadius: borderRadius.bottomRight + 'px',
+        }}>
             Cliqueame
         </button>
     )

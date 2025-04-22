@@ -5,13 +5,20 @@ function App() {
 
   return (
     <>
-      <Button 
-        backgroundColor='green' 
-        fontSize={30} 
-        pillShape={true}
-        padding={[4,2,4,2]} 
-        textColor='black'
-        />
+      <Button style={{
+        backgroundColor: "blue",
+        fontSize: 25,
+        color: "white",
+        padding: "1rem 2rem",
+        borderWidth: 2,
+        borderColor: "black"
+      }}
+      borderRadius={{
+        topLeft: 10,
+        topRight: 20,
+        bottomLeft: 20,
+        bottomRight: 10
+      }}/>
     </>
   )
 }
