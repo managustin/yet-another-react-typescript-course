@@ -1,14 +1,8 @@
-import React, { Children } from "react"
+import React from "react"
 
-type ButtonProps = {    //added this type, so that I can specify that the props for the button are of type buttonProps
-    setCount: React.Dispatch<React.SetStateAction<number>>;
-    children: React.ReactNode;
-}
-export default function Button({ setCount, children }: ButtonProps) {
-    
-    return (
-        <button onClick={() => setCount(prev=> prev + 1)}>
-            {children}
-        </button>
-    )
+type ButtonProps = React.ComponentProps<"button">    // this is a helper type, we can now accept all the
+                                                // attributes that this native html element accepts.
+
+export default function Button({ type, autoFocus }: ButtonProps) {
+    return <button> Click me!</button>
 }
