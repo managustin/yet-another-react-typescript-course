@@ -1,12 +1,16 @@
 import React from "react"
 
-type ButtonProps = React.ComponentPropsWithoutRef<"button"> & {
-    variant?: "primary" | "secondary";
-};    // this is a helper type, we can now accept all the
+type ButtonProps = {
+    type: "button" | "submit" | "reset";
+    color: "red" | "blue" | "green";
+}
 
-export default function Button({ type, autoFocus, variant, ...rest }: ButtonProps) {
+type superButtonProps = ButtonProps & {
+    size: "md" | "lg";
+}
+export default function Button({}: ButtonProps) {
     return (
-    <button type={type} autoFocus={autoFocus} {...rest}>
+    <button>
         Click me!
     </button>
     );
