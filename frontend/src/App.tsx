@@ -4,7 +4,7 @@ import Button from './components/button'
 function App() {
   return (
     <main>
-      <Button/>
+      <Button countValue={5} countHistory={[10, 20, 30]}/>
     </main>
   )
 }

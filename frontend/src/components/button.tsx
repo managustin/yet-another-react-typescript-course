@@ -1,19 +1,27 @@
-import React, { useEffect } from "react"
-
-type User = {
-    sessionId: string;
-    name: string
+import React from "react";
+const convertToArray = <T,>(value: T): T[] => {//the comma is necessary, not using it will make React think it is an HTML tag
+    return[value];
 }
 
-type Guest = Omit<User, "name">; //Omit takes an existing type and removes something from there 
+convertToArray(5);
+convertToArray("hello");
 
-type ButtonColor = "red" | "blue" | "green";
 
-export default function Button() {
+function nonArrowFunction<T>(value: T): T[] {
+    return [value];
+}
 
-    useEffect(() => {
-        const previousButtonColor = localStorage.getItem("buttonColor") as ButtonColor;
-    }, []);
-    return <button>cliqueame</button>
+nonArrowFunction(5);
+nonArrowFunction("wtf");
+
+// Example of generics in react components.
+
+type ButtonProps<T> = {
+    countValue: T;
+    countHistory: T[];
+}
+export default function Button<T>({countValue, countHistory}: ButtonProps<T>) {
+    console.log(countValue, countHistory);
+    return <button>cliqueame</button>;
 
 }
