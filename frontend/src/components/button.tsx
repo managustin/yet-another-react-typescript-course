@@ -1,16 +1,6 @@
-import React from "react"
-
-type ButtonProps = {
-    type: "button" | "submit" | "reset";
-    color: "red" | "blue" | "green";
-}
-
-type superButtonProps = ButtonProps & {
-    size: "md" | "lg";
-}
-export default function Button({}: ButtonProps) {
+export default function Button() {
     return (
-    <button>
+    <button onClick={(e) => console.log("clicked")}>
         Click me!
     </button>
     );
